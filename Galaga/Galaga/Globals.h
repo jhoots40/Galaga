@@ -13,9 +13,8 @@ extern SDL_Window* gWindow;
 //The window renderer
 extern SDL_Renderer* gRenderer;
 
-extern int scrollingOffset;
-
-extern double scrollingOffset2;
+//delta time: the amount of time that has passed since the last frame in seconds
+extern float dt;
 
 #endif 
 

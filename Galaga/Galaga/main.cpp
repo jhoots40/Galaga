@@ -1,68 +1,91 @@
-#include "Util.h"
+#include "Assets/Util.h"
 #include "Globals.h"
-#include "GameState.hpp"
+#include "Gamestates/GameState.hpp"
+#include "Background.hpp"
 
- int main( int argc, char* args[] )
- {
-     //Start up SDL and create window
-     if( !init() )
-     {
-         printf( "Failed to initialize!\n" );
-     }
-     else
-     {
-         //Load media
-         if( !loadMedia() )
-         {
-             printf( "Failed to load media!\n" );
-         }
-         else
-         {
-             //Event handler
-             SDL_Event e;
+//The window we'll be rendering to
+SDL_Window* gWindow = NULL;
 
-             //Set the current game state object
-             currentState = MenuState::get();
-             currentState->enter();
+//The window renderer
+SDL_Renderer* gRenderer = NULL;
 
-             //While the user hasn't quit
-             while( currentState != ExitState::get() )
-             {
-                 //Do state event handling
-                 while( SDL_PollEvent( &e ) != 0 )
-                 {
-                     //Handle state events
-                     currentState->handleEvent( e );
+//delta time: the amount of time that has passed since the last frame in seconds
+float dt = 0;
 
-                     //Exit on quit
-                     if( e.type == SDL_QUIT )
-                     {
-                         setNextState( ExitState::get() );
-                     }
-                 }
+int main( int argc, char* args[] )
+{
+    //Start up SDL and create window
+    if( !init() )
+    {
+        printf( "Failed to initialize!\n" );
+    }
+    else
+    {
+        //Load media
+        if( !loadMedia() )
+        {
+            printf( "Failed to load media!\n" );
+        }
+        else
+        {
+            
+            //helps calculate delta time
+            Uint32 pastCount = 0;
+            
+            //background for the entire game
+            Background b;
+            
+            //Event handler
+            SDL_Event e;
 
-                 //Do state logic
-                 currentState->update();
+            //Set the current game state object
+            currentState = MenuState::get();
+            currentState->enter();
 
-                 //Change state if needed
-                 changeState();
+            //While the user hasn't quit
+            while( currentState != ExitState::get() )
+            {
+                //calculate delta time
+                dt = (SDL_GetTicks() - pastCount) / 1000.0f;
+                pastCount = SDL_GetTicks();
+                
+                //Do state event handling
+                while( SDL_PollEvent( &e ) != 0 )
+                {
+                    //Handle state events
+                    currentState->handleEvent( e );
 
-                 //Clear screen
-                 SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-                 SDL_RenderClear( gRenderer );
+                    //Exit on quit
+                    if( e.type == SDL_QUIT )
+                    {
+                        setNextState( ExitState::get() );
+                    }
+                }
 
-                 //Do state rendering
-                 currentState->render();
+                //Do state logic
+                b.update();
+                currentState->update();
 
-                 //Update screen
-                 SDL_RenderPresent( gRenderer );
-             }
-         }
-     }
+                //Change state if needed
+                changeState();
 
-     //Free resources and close SDL
-     close();
+                //Clear screen
+                SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+                SDL_RenderClear( gRenderer );
 
-     return 0;
- }
+                //Do state rendering
+                b.render();
+                currentState->render();
+
+                //Update screen
+                SDL_RenderPresent( gRenderer );
+            }
+        }
+    }
+
+    //Free resources and close SDL
+    close();
+
+    return 0;
+}
  

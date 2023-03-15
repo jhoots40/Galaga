@@ -11,12 +11,12 @@
 		788CD09629BFBCD400B72C57 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788CD08F29BFB9D400B72C57 /* SDL2_image.framework */; };
 		788CD09929BFBCD600B72C57 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788CD09329BFBAA000B72C57 /* SDL2_ttf.framework */; };
 		788CD0D629C1322200B72C57 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0D429C1322200B72C57 /* GameState.cpp */; };
-		788CD0E029C136DD00B72C57 /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0DE29C136BE00B72C57 /* Globals.cpp */; };
 		788CD0E229C1393C00B72C57 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0E129C1393000B72C57 /* main.cpp */; };
 		788CD0E929C139AB00B72C57 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0E629C1398200B72C57 /* Util.cpp */; };
 		788CD0EA29C13B3000B72C57 /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0DC29C1354400B72C57 /* LTexture.cpp */; };
 		788CD0ED29C1424100B72C57 /* MenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0EB29C1424100B72C57 /* MenuState.cpp */; };
 		788CD0F029C1427900B72C57 /* ExitState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0EE29C1427900B72C57 /* ExitState.cpp */; };
+		788CD0F329C1656200B72C57 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0F129C1656200B72C57 /* Background.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,7 +42,6 @@
 		788CD0D529C1322200B72C57 /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 		788CD0DC29C1354400B72C57 /* LTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
 		788CD0DD29C1354700B72C57 /* LTexture.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = LTexture.hpp; sourceTree = "<group>"; };
-		788CD0DE29C136BE00B72C57 /* Globals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Globals.cpp; sourceTree = "<group>"; };
 		788CD0DF29C136C500B72C57 /* Globals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		788CD0E129C1393000B72C57 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		788CD0E629C1398200B72C57 /* Util.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
@@ -50,6 +49,8 @@
 		788CD0E829C1399E00B72C57 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		788CD0EB29C1424100B72C57 /* MenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuState.cpp; sourceTree = "<group>"; };
 		788CD0EE29C1427900B72C57 /* ExitState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExitState.cpp; sourceTree = "<group>"; };
+		788CD0F129C1656200B72C57 /* Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
+		788CD0F229C1656200B72C57 /* Background.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Background.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,18 +87,11 @@
 		788CD07F29BFB1A900B72C57 /* Galaga */ = {
 			isa = PBXGroup;
 			children = (
-				788CD0E129C1393000B72C57 /* main.cpp */,
-				788CD0DE29C136BE00B72C57 /* Globals.cpp */,
-				788CD0DF29C136C500B72C57 /* Globals.h */,
 				788CD0E829C1399E00B72C57 /* Constants.h */,
-				788CD0E729C1398400B72C57 /* Util.h */,
-				788CD0E629C1398200B72C57 /* Util.cpp */,
-				788CD0DC29C1354400B72C57 /* LTexture.cpp */,
-				788CD0DD29C1354700B72C57 /* LTexture.hpp */,
-				788CD0D429C1322200B72C57 /* GameState.cpp */,
-				788CD0D529C1322200B72C57 /* GameState.hpp */,
-				788CD0DB29C1353800B72C57 /* Objects */,
-				788CD0D329C1318400B72C57 /* States */,
+				788CD0DF29C136C500B72C57 /* Globals.h */,
+				788CD0E129C1393000B72C57 /* main.cpp */,
+				788CD0F429C16CD500B72C57 /* Gamestates */,
+				788CD0F529C16E3300B72C57 /* Assets */,
 				788CD0A029BFBE1100B72C57 /* readme.txt */,
 				788CD08C29BFB58A00B72C57 /* Galaga.entitlements */,
 			);
@@ -123,11 +117,27 @@
 			path = States;
 			sourceTree = "<group>";
 		};
-		788CD0DB29C1353800B72C57 /* Objects */ = {
+		788CD0F429C16CD500B72C57 /* Gamestates */ = {
 			isa = PBXGroup;
 			children = (
+				788CD0D529C1322200B72C57 /* GameState.hpp */,
+				788CD0D429C1322200B72C57 /* GameState.cpp */,
+				788CD0D329C1318400B72C57 /* States */,
 			);
-			path = Objects;
+			path = Gamestates;
+			sourceTree = "<group>";
+		};
+		788CD0F529C16E3300B72C57 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				788CD0F229C1656200B72C57 /* Background.hpp */,
+				788CD0F129C1656200B72C57 /* Background.cpp */,
+				788CD0DD29C1354700B72C57 /* LTexture.hpp */,
+				788CD0DC29C1354400B72C57 /* LTexture.cpp */,
+				788CD0E729C1398400B72C57 /* Util.h */,
+				788CD0E629C1398200B72C57 /* Util.cpp */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,13 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				788CD0E029C136DD00B72C57 /* Globals.cpp in Sources */,
 				788CD0F029C1427900B72C57 /* ExitState.cpp in Sources */,
 				788CD0EA29C13B3000B72C57 /* LTexture.cpp in Sources */,
 				788CD0E229C1393C00B72C57 /* main.cpp in Sources */,
 				788CD0D629C1322200B72C57 /* GameState.cpp in Sources */,
 				788CD0E929C139AB00B72C57 /* Util.cpp in Sources */,
 				788CD0ED29C1424100B72C57 /* MenuState.cpp in Sources */,
+				788CD0F329C1656200B72C57 /* Background.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
