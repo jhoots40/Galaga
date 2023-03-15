@@ -59,7 +59,4 @@ void Background::render() {
     redStars.render( 0, redPos - redStars.getHeight() );
     blueStars.render( 0, bluePos );
     blueStars.render( 0, bluePos - blueStars.getHeight() );
-
-    //Update screen
-    SDL_RenderPresent( gRenderer );
 }
