@@ -9,18 +9,24 @@
 #include "Star.hpp"
 #include "LTexture.hpp"
 #include "../Globals.h"
-#include <cstdlib>
 #include <sys/time.h>
-#include <iostream>
 
 Star::Star(LTexture *L, int x, int y){
-    //initialize variables
+    //pointer to correct star texture
     starColor = L;
+    
     xPos = x;
     yPos = y;
+    
+    //speed will randomly be 100, 200, 300, 400 pixels/sec
     speed = ((rand() % 4) + 1) * 100;
-    blink = rand() % 2;
-    blinkType = 0;
+    
+    //blinktype makes it so 20 percent of stars will not blink
+    blink = true;
+    blinkType = rand() % 5;
+    
+    //offset of time for blinking
+    offset = rand() % 1000;
 }
 
 Star::Star() {
@@ -29,42 +35,43 @@ Star::Star() {
     xPos = 0;
     yPos = 0;
     speed = 0.0f;
+    blink = false;
+    blinkType = 0;
+    offset = 0;
 }
 
 void Star::update() {
+    
     //update speed according to the deltaTime variable and star speed
     yPos += speed * dt;
+    
     //if yPos is bigger than the screen bring it back
     if( yPos > SCREEN_HEIGHT ) {
         yPos = yPos - 800;
     }
     
+    //collect time
     struct timeval time_now{};
     gettimeofday(&time_now, nullptr);
-    time_t ms = (time_now.tv_sec * 1000) + (time_now.tv_usec / 1000);
-    if(blinkType == 0) {
-        blink = true;
-    }
-    else if(blinkType == 1) {
-        
-    }
-    else if(blinkType == 2) {
-        
-    }
-    else if(blinkType == 3) {
-        
-    } else {
-        fprintf(stderr, "blinkType is invalid");
-    }
+    time_t ms = ((time_now.tv_sec * 1000) + (time_now.tv_usec / 1000));
     
+    //counts from 0-750 in millseconds
+    //if we are between 0 - 500 ms we show the star
+    //else we don't show the star
+    if(((ms + offset) % 750) < 500) {
+        blink = true;
+    } else {
+        blink = false;
+    }
 }
 
 void Star::render() {
-    //render star at current position
-    if(blink) starColor->render(xPos, yPos);
+    //render star at current position if blink is true or its blink type is 0
+    if(blink || blinkType == 0) starColor->render(xPos, yPos);
 
 }
 
 Star::~Star() {
+    //nullify pointer
     starColor = NULL;
 }

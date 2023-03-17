@@ -10,7 +10,7 @@
 
 //constructor
 Background::Background() {
-    
+
     //Load black background
     if( !black.loadFromFile( "resources/black.png" ) )
     {
@@ -47,12 +47,12 @@ Background::Background() {
     }
 
     //assign the stars to a random x and y position and color
-    for (int i = 0; i < 100; i++) {
-        if (i < 25) {
+    for (int i = 0; i < 80; i++) {
+        if (i < 20) {
             stars[i] = Star(&redStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
-        } else if (i < 50) {
+        } else if (i < 40) {
             stars[i] = Star(&blueStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
-        } else if (i < 75) {
+        } else if (i < 60) {
             stars[i] = Star(&greenStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
         } else {
             stars[i] = Star(&yellowStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
@@ -64,7 +64,7 @@ Background::Background() {
 //deconstructor
 Background::~Background() {
     // free memory used by stars array
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 80; i++) {
         // call the destructor of each Star object to free its memory
         stars[i].~Star();
     }
@@ -79,15 +79,18 @@ Background::~Background() {
 
 //update the position of the stars
 void Background::update() {
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < 80; i++) {
         stars[i].update();
     }
 }
 
-//render the stars
+//render the background
 void Background::render() {
+    //render black background
     black.render( 0, 0 );
-    for(int i = 0; i < 100; i++) {
+    
+    //render stars
+    for(int i = 0; i < 80; i++) {
         stars[i].render();
     }
 }

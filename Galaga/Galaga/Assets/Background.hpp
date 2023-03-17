@@ -27,24 +27,17 @@ public:
     void render();
     
 private:
-    //black background
+    //texture for the black background
     LTexture black;
     
+    //Texture for each of the colored stars, should probs put these all in one texture in the future
     LTexture blueStars;
-    
     LTexture redStars;
-    
     LTexture greenStars;
-    
     LTexture yellowStars;
     
-    Star stars[100];
-    
-    //scrolling offset for red stars
-    int redPos;
-    
-    //scrolling offset for blue stars
-    int bluePos;
+    //array of stars I am rendering to the screen
+    Star stars[80];
 };
 
 #endif /* background_hpp */

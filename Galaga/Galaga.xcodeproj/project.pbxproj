@@ -142,8 +142,8 @@
 				788CD0DC29C1354400B72C57 /* LTexture.cpp */,
 				788CD0E729C1398400B72C57 /* Util.h */,
 				788CD0E629C1398200B72C57 /* Util.cpp */,
-				78EA080729C3BC0100861150 /* Star.cpp */,
 				78EA080829C3BC0100861150 /* Star.hpp */,
+				78EA080729C3BC0100861150 /* Star.cpp */,
 			);
 			path = Assets;
 			sourceTree = "<group>";

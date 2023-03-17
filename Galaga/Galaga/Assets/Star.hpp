@@ -43,6 +43,9 @@ private:
     
     //designates how the star will blink
     int blinkType;
+    
+    //time offset in ms
+    int offset;
 };
 
 #endif /* Star_hpp */
