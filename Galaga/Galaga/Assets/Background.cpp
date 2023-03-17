@@ -4,59 +4,90 @@
 //
 //  Created by Jake Houts on 3/14/23.
 //
-
+#include "Constants.h"
 #include "Background.hpp"
 #include "Globals.h"
 
 //constructor
 Background::Background() {
     
-    redPos = 0;
-    bluePos = 0;
-    
-    //Load redStars
-    if( !redStars.loadFromFile( "resources/redStars.png" ) )
+    //Load black background
+    if( !black.loadFromFile( "resources/black.png" ) )
     {
-        fprintf(stderr, "Failed to load \"resources/redStars.png\"\n" );
+        fprintf(stderr, "Failed to load \"resources/black.png\"\n" );
         exit(1);
     }
     
-    //Load blueStars
-    if( !blueStars.loadFromFile( "resources/blueStars.png" ) )
+    //Load a green star texture
+    if( !greenStars.loadFromFile( "resources/greenStar.png" ) )
     {
-        fprintf(stderr, "Failed to load \"resources/blueStars.png\"\n" );
+        fprintf(stderr, "Failed to load \"resources/greenStar.png\"\n" );
         exit(1);
     }
+    
+    //Load a yellow star texture
+    if( !yellowStars.loadFromFile( "resources/yellowStar.png" ) )
+    {
+        fprintf(stderr, "Failed to load \"resources/yellowStar.png\"\n" );
+        exit(1);
+    }
+    
+    //Load a red star texture
+    if( !redStars.loadFromFile( "resources/redStar.png" ) )
+    {
+        fprintf(stderr, "Failed to load \"resources/redStar.png\"\n" );
+        exit(1);
+    }
+    
+    //Load a blue star texture
+    if( !blueStars.loadFromFile( "resources/blueStar.png" ) )
+    {
+        fprintf(stderr, "Failed to load \"resources/blueStar.png\"\n" );
+        exit(1);
+    }
+
+    //assign the stars to a random x and y position and color
+    for (int i = 0; i < 100; i++) {
+        if (i < 25) {
+            stars[i] = Star(&redStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
+        } else if (i < 50) {
+            stars[i] = Star(&blueStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
+        } else if (i < 75) {
+            stars[i] = Star(&greenStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
+        } else {
+            stars[i] = Star(&yellowStars, rand() % SCREEN_WIDTH, rand() % SCREEN_HEIGHT);
+        }
+    }
+    
 }
 
 //deconstructor
 Background::~Background() {
-    redStars.free();
-    blueStars.free();
+    // free memory used by stars array
+    for (int i = 0; i < 100; i++) {
+        // call the destructor of each Star object to free its memory
+        stars[i].~Star();
+    }
+    
+    //free memory from textures
+    black.~LTexture();
+    blueStars.~LTexture();
+    redStars.~LTexture();
+    greenStars.~LTexture();
+    yellowStars.~LTexture();
 }
 
 //update the position of the stars
 void Background::update() {
-    //move stars downward at a pace of 100 pixels per second
-    redPos += 100 * dt;
-    if( redPos > redStars.getHeight() )
-    {
-        redPos = 0;
-    }
-    
-    //move stars downward at a pace of 200 pixels per second
-    bluePos += 200 * dt;
-    if( bluePos > blueStars.getHeight() )
-    {
-        bluePos = 0;
+    for(int i = 0; i < 100; i++) {
+        stars[i].update();
     }
 }
 
 //render the stars
 void Background::render() {
-    //Render objects
-    redStars.render( 0, redPos );
-    redStars.render( 0, redPos - redStars.getHeight() );
-    blueStars.render( 0, bluePos );
-    blueStars.render( 0, bluePos - blueStars.getHeight() );
+    black.render( 0, 0 );
+    for(int i = 0; i < 100; i++) {
+        stars[i].render();
+    }
 }

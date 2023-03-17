@@ -17,6 +17,8 @@
 		788CD0ED29C1424100B72C57 /* MenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0EB29C1424100B72C57 /* MenuState.cpp */; };
 		788CD0F029C1427900B72C57 /* ExitState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0EE29C1427900B72C57 /* ExitState.cpp */; };
 		788CD0F329C1656200B72C57 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0F129C1656200B72C57 /* Background.cpp */; };
+		78EA080629C3BB2E00861150 /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080529C3BB2E00861150 /* Globals.cpp */; };
+		78EA080929C3BC0100861150 /* Star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080729C3BC0100861150 /* Star.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,9 @@
 		788CD0EE29C1427900B72C57 /* ExitState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ExitState.cpp; sourceTree = "<group>"; };
 		788CD0F129C1656200B72C57 /* Background.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		788CD0F229C1656200B72C57 /* Background.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Background.hpp; sourceTree = "<group>"; };
+		78EA080529C3BB2E00861150 /* Globals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Globals.cpp; sourceTree = "<group>"; };
+		78EA080729C3BC0100861150 /* Star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Star.cpp; sourceTree = "<group>"; };
+		78EA080829C3BC0100861150 /* Star.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Star.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,7 @@
 			children = (
 				788CD0E829C1399E00B72C57 /* Constants.h */,
 				788CD0DF29C136C500B72C57 /* Globals.h */,
+				78EA080529C3BB2E00861150 /* Globals.cpp */,
 				788CD0E129C1393000B72C57 /* main.cpp */,
 				788CD0F429C16CD500B72C57 /* Gamestates */,
 				788CD0F529C16E3300B72C57 /* Assets */,
@@ -136,6 +142,8 @@
 				788CD0DC29C1354400B72C57 /* LTexture.cpp */,
 				788CD0E729C1398400B72C57 /* Util.h */,
 				788CD0E629C1398200B72C57 /* Util.cpp */,
+				78EA080729C3BC0100861150 /* Star.cpp */,
+				78EA080829C3BC0100861150 /* Star.hpp */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -197,6 +205,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78EA080929C3BC0100861150 /* Star.cpp in Sources */,
+				78EA080629C3BB2E00861150 /* Globals.cpp in Sources */,
 				788CD0F029C1427900B72C57 /* ExitState.cpp in Sources */,
 				788CD0EA29C13B3000B72C57 /* LTexture.cpp in Sources */,
 				788CD0E229C1393C00B72C57 /* main.cpp in Sources */,

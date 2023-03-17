@@ -10,6 +10,7 @@
 
 #include <stdio.h>
 #include "LTexture.hpp"
+#include "Star.hpp"
 
 class Background {
 public:
@@ -29,17 +30,21 @@ private:
     //black background
     LTexture black;
     
-    //red stars
-    LTexture redStars;
-    
-    //blue stars
     LTexture blueStars;
     
+    LTexture redStars;
+    
+    LTexture greenStars;
+    
+    LTexture yellowStars;
+    
+    Star stars[100];
+    
     //scrolling offset for red stars
-    float redPos;
+    int redPos;
     
     //scrolling offset for blue stars
-    float bluePos;
+    int bluePos;
 };
 
 #endif /* background_hpp */

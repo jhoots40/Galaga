@@ -1,19 +1,12 @@
-#include "Assets/Util.h"
+#include "Util.h"
 #include "Globals.h"
-#include "Gamestates/GameState.hpp"
+#include "GameState.hpp"
 #include "Background.hpp"
-
-//The window we'll be rendering to
-SDL_Window* gWindow = NULL;
-
-//The window renderer
-SDL_Renderer* gRenderer = NULL;
-
-//delta time: the amount of time that has passed since the last frame in seconds
-float dt = 0;
+#include "Star.hpp"
 
 int main( int argc, char* args[] )
 {
+    
     //Start up SDL and create window
     if( !init() )
     {
