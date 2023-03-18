@@ -19,6 +19,8 @@
 		788CD0F329C1656200B72C57 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 788CD0F129C1656200B72C57 /* Background.cpp */; };
 		78EA080629C3BB2E00861150 /* Globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080529C3BB2E00861150 /* Globals.cpp */; };
 		78EA080929C3BC0100861150 /* Star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080729C3BC0100861150 /* Star.cpp */; };
+		78EA080C29C5032800861150 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080A29C5032800861150 /* Player.cpp */; };
+		78EA080E29C5263400861150 /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080D29C5263400861150 /* PlayState.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +58,9 @@
 		78EA080529C3BB2E00861150 /* Globals.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Globals.cpp; sourceTree = "<group>"; };
 		78EA080729C3BC0100861150 /* Star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Star.cpp; sourceTree = "<group>"; };
 		78EA080829C3BC0100861150 /* Star.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Star.hpp; sourceTree = "<group>"; };
+		78EA080A29C5032800861150 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		78EA080B29C5032800861150 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		78EA080D29C5263400861150 /* PlayState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 			children = (
 				788CD0EB29C1424100B72C57 /* MenuState.cpp */,
 				788CD0EE29C1427900B72C57 /* ExitState.cpp */,
+				78EA080D29C5263400861150 /* PlayState.cpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 		788CD0F529C16E3300B72C57 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				78EA080B29C5032800861150 /* Player.hpp */,
+				78EA080A29C5032800861150 /* Player.cpp */,
 				788CD0F229C1656200B72C57 /* Background.hpp */,
 				788CD0F129C1656200B72C57 /* Background.cpp */,
 				788CD0DD29C1354700B72C57 /* LTexture.hpp */,
@@ -209,6 +217,8 @@
 				78EA080629C3BB2E00861150 /* Globals.cpp in Sources */,
 				788CD0F029C1427900B72C57 /* ExitState.cpp in Sources */,
 				788CD0EA29C13B3000B72C57 /* LTexture.cpp in Sources */,
+				78EA080E29C5263400861150 /* PlayState.cpp in Sources */,
+				78EA080C29C5032800861150 /* Player.cpp in Sources */,
 				788CD0E229C1393C00B72C57 /* main.cpp in Sources */,
 				788CD0D629C1322200B72C57 /* GameState.cpp in Sources */,
 				788CD0E929C139AB00B72C57 /* Util.cpp in Sources */,

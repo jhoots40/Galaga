@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "../Assets/LTexture.hpp"
+#include "Player.hpp"
 
 /*
 ------------------------------------------------------------
@@ -60,17 +61,44 @@ private:
     //Private constructor
     MenuState();
     
-    //Just a black background
-    //File used:
-    LTexture blackSpace;
+    LTexture *logo;
+    LTexture *player1;
+    LTexture *player2;
+    LTexture *marker;
     
-    //Blue Stars in the background
-    //File Used:
-    LTexture blueStars;
+    int scrollingOffset;
+    bool select;
+};
+
+
+/*
+------------------------------------------------------------
+PlayState (Playing the Game)
+------------------------------------------------------------
+*/
+class PlayState : public GameState {
+public:
+    //static accessor
+    static PlayState *get();
     
-    //Red Stars in the background
-    //File Used
-    LTexture redStars;
+    //Transitions
+    bool enter();
+    bool exit();
+    
+    //Main loop functions
+    void handleEvent( SDL_Event& e );
+    void update();
+    void render();
+
+private:
+    //Static instance
+    static PlayState sPlayState;
+
+    //Private constructor
+    PlayState();
+    
+    //Main Player
+    Player *player;
 };
 
 

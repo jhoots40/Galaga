@@ -25,7 +25,7 @@ bool init()
 		}
 
 		//Create window
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		gWindow = SDL_CreateWindow( "GALAGA", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -52,6 +52,13 @@ bool init()
 					printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
 					success = false;
 				}
+                
+                //Initialize SDL_ttf
+                if( TTF_Init() == -1 )
+                {
+                    printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+                    success = false;
+                }
 			}
 		}
 	}
@@ -63,12 +70,35 @@ bool loadMedia()
 {
 	//Loading success flag
 	bool success = true;
+    
+    if( !playerShip.loadFromFile("resources/player.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/player.png\"\n" );
+        success = false;
+    }
+    
+    if( !galagaLogo.loadFromFile("resources/Logo.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/Logo.png\"\n" );
+        success = false;
+    }
+    
+    //Open the font
+    gFont = TTF_OpenFont( "resources/font.ttf", 28 );
+    if( gFont == NULL )
+    {
+        fprintf( stderr, "Failed to load galaga font! SDL_ttf Error: %s\n", TTF_GetError() );
+        success = false;
+    }
 
 	return success;
 }
 
 void close()
 {
+    //free textures
+    playerShip.free();
+    galagaLogo.free();
 
 	//Destroy window	
 	SDL_DestroyRenderer( gRenderer );
