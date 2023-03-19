@@ -10,9 +10,13 @@
 
 #include <stdio.h>
 #include "LTexture.hpp"
+#include "Bullet.hpp"
 
 class Player {
 public:
+    //player speed
+    static const int PLAYER_VEL = 250;
+    
     //constructor
     Player();
     
@@ -29,13 +33,23 @@ public:
     void render();
     
 private:
-    int xPos, yPos;
+    //position of the player
+    float xPos, yPos;
     
+    //texture of the player
     LTexture *playerTexture;
     
+    //current velocity of the player
     float xVel;
     
+    //bullets available to the player
+    Bullet *bullets[2];
     
+    //keeps track of which index the next bullet will be stored
+    int nextBullet;
+    
+    //Players collision box
+    SDL_Rect playerCollider;
 };
 
 #endif /* Player_hpp */

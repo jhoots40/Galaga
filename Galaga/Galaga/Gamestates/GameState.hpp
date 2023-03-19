@@ -81,6 +81,8 @@ public:
     //static accessor
     static PlayState *get();
     
+    static void catchChannelDone(int chan);
+    
     //Transitions
     bool enter();
     bool exit();
@@ -89,6 +91,8 @@ public:
     void handleEvent( SDL_Event& e );
     void update();
     void render();
+    
+    int finishMusic();
 
 private:
     //Static instance

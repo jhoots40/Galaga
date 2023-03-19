@@ -21,6 +21,8 @@
 		78EA080929C3BC0100861150 /* Star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080729C3BC0100861150 /* Star.cpp */; };
 		78EA080C29C5032800861150 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080A29C5032800861150 /* Player.cpp */; };
 		78EA080E29C5263400861150 /* PlayState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080D29C5263400861150 /* PlayState.cpp */; };
+		78EA081129C664BB00861150 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA080F29C664BB00861150 /* Bullet.cpp */; };
+		78EA081329C6848900861150 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EA081229C6848800861150 /* SDL2_mixer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +63,9 @@
 		78EA080A29C5032800861150 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		78EA080B29C5032800861150 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		78EA080D29C5263400861150 /* PlayState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlayState.cpp; sourceTree = "<group>"; };
+		78EA080F29C664BB00861150 /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		78EA081029C664BB00861150 /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
+		78EA081229C6848800861150 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				788CD09629BFBCD400B72C57 /* SDL2_image.framework in Frameworks */,
+				78EA081329C6848900861150 /* SDL2_mixer.framework in Frameworks */,
 				788CD09929BFBCD600B72C57 /* SDL2_ttf.framework in Frameworks */,
 				788CD08929BFB21000B72C57 /* SDL2.framework in Frameworks */,
 			);
@@ -112,6 +118,7 @@
 		788CD08729BFB20F00B72C57 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78EA081229C6848800861150 /* SDL2_mixer.framework */,
 				788CD09329BFBAA000B72C57 /* SDL2_ttf.framework */,
 				788CD08F29BFB9D400B72C57 /* SDL2_image.framework */,
 				788CD08829BFB21000B72C57 /* SDL2.framework */,
@@ -152,6 +159,8 @@
 				788CD0E629C1398200B72C57 /* Util.cpp */,
 				78EA080829C3BC0100861150 /* Star.hpp */,
 				78EA080729C3BC0100861150 /* Star.cpp */,
+				78EA081029C664BB00861150 /* Bullet.hpp */,
+				78EA080F29C664BB00861150 /* Bullet.cpp */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 				78EA080E29C5263400861150 /* PlayState.cpp in Sources */,
 				78EA080C29C5032800861150 /* Player.cpp in Sources */,
 				788CD0E229C1393C00B72C57 /* main.cpp in Sources */,
+				78EA081129C664BB00861150 /* Bullet.cpp in Sources */,
 				788CD0D629C1322200B72C57 /* GameState.cpp in Sources */,
 				788CD0E929C139AB00B72C57 /* Util.cpp in Sources */,
 				788CD0ED29C1424100B72C57 /* MenuState.cpp in Sources */,

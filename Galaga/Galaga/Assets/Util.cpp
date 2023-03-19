@@ -11,7 +11,7 @@ bool init()
 	bool success = true;
 
 	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+	if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0 )
 	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		success = false;
@@ -53,6 +53,13 @@ bool init()
 					success = false;
 				}
                 
+                //Initialize SDL_mixer
+                if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+                {
+                    printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+                    success = false;
+                }
+                
                 //Initialize SDL_ttf
                 if( TTF_Init() == -1 )
                 {
@@ -82,12 +89,32 @@ bool loadMedia()
         fprintf(stderr, "Failed to load \"resources/Logo.png\"\n" );
         success = false;
     }
+    if( !playerBullet.loadFromFile("resources/playerBullet.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/playerBullet.png\"\n" );
+        success = false;
+    }
     
     //Open the font
     gFont = TTF_OpenFont( "resources/font.ttf", 28 );
     if( gFont == NULL )
     {
         fprintf( stderr, "Failed to load galaga font! SDL_ttf Error: %s\n", TTF_GetError() );
+        success = false;
+    }
+    
+    //Load sound effects
+    introMusic = Mix_LoadWAV( "resources/GalagaThemeSong.wav" );
+    if( introMusic == NULL )
+    {
+        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
+        success = false;
+    }
+    
+    fireSound = Mix_LoadWAV( "resources/fireSound.wav" );
+    if( fireSound == NULL )
+    {
+        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
         success = false;
     }
 
@@ -99,6 +126,12 @@ void close()
     //free textures
     playerShip.free();
     galagaLogo.free();
+    
+    //free sound files
+    Mix_FreeChunk(introMusic);
+    Mix_FreeChunk(fireSound);
+    introMusic = NULL;
+    fireSound = NULL;
 
 	//Destroy window	
 	SDL_DestroyRenderer( gRenderer );
@@ -107,6 +140,8 @@ void close()
 	gRenderer = NULL;
 
 	//Quit SDL subsystems
+    Mix_Quit();
+    TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();
 }

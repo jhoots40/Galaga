@@ -21,10 +21,6 @@ int main( int argc, char* args[] )
         }
         else
         {
-            
-            //helps calculate delta time
-            Uint32 pastCount = 0;
-            
             //background for the entire game
             Background b;
             

@@ -21,6 +21,16 @@ bool PlayState::enter()
     
     player = new Player();
     
+    //play sound
+    Mix_PlayChannel( -1, introMusic, 0 );
+    
+    //declare a function pointer to our callback
+    void (*done)(int) = &catchChannelDone;
+    Mix_ChannelFinished(done);
+    
+    //done with pointer so set to null;
+    done = NULL;
+    
     return success;
 }
     
@@ -29,6 +39,7 @@ bool PlayState::exit()
     //free player
     delete player;
     player = NULL;
+    
     return true;
 }
 
@@ -52,4 +63,9 @@ PlayState PlayState::sPlayState;
 PlayState::PlayState()
 {
     
+}
+
+void PlayState::catchChannelDone(int chan)
+{
+    setNextState( MenuState::get() );
 }
