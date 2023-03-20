@@ -94,6 +94,12 @@ bool loadMedia()
         fprintf(stderr, "Failed to load \"resources/playerBullet.png\"\n" );
         success = false;
     }
+    if( !wasp.loadFromFile("resources/wasp.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/wasp.png\"\n" );
+        success = false;
+    }
+    
     
     //Open the font
     gFont = TTF_OpenFont( "resources/font.ttf", 28 );

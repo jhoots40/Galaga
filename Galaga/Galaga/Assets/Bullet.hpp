@@ -30,6 +30,9 @@ public:
     //check is bullet is on screen
     bool isOnScreen() { return onScreen; }
     
+    //get collision box
+    SDL_Rect getCollider() { return bulletCollider; }
+    
 private:
     //bullet position
     float xPos, yPos;

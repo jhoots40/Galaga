@@ -28,6 +28,7 @@ TTF_Font* gFont = NULL;
 LTexture playerShip;
 LTexture galagaLogo;
 LTexture playerBullet;
+LTexture wasp;
 
 //intro music
 Mix_Chunk *introMusic = NULL;

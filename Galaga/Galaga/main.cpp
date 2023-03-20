@@ -54,6 +54,9 @@ int main( int argc, char* args[] )
                 //Do state logic
                 b.update();
                 currentState->update();
+                
+                //check collisions
+                currentState->checkCollision();
 
                 //Change state if needed
                 changeState();

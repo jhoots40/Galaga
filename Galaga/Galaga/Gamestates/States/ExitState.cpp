@@ -38,6 +38,10 @@ void ExitState::render()
 
 }
 
+void ExitState::checkCollision() {
+    
+}
+
 ExitState ExitState::sExitState;
 
 ExitState::ExitState()

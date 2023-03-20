@@ -12,6 +12,7 @@
 #include <SDL2/SDL.h>
 #include "../Assets/LTexture.hpp"
 #include "Player.hpp"
+#include "Wasp.hpp"
 
 /*
 ------------------------------------------------------------
@@ -21,6 +22,8 @@ GameState (Bass Class)
 class GameState
 {
 public:
+    static Player player;
+    
     //State transitions
     virtual bool enter() = 0;
     virtual bool exit() = 0;
@@ -29,6 +32,7 @@ public:
     virtual void handleEvent( SDL_Event &e ) = 0;
     virtual void update() = 0;
     virtual void render() = 0;
+    virtual void checkCollision() = 0;
 
     //Make sure to call child destructors
     virtual ~GameState(){};
@@ -53,6 +57,7 @@ public:
     void handleEvent( SDL_Event& e );
     void update();
     void render();
+    void checkCollision();
 
 private:
     //Static instance
@@ -73,15 +78,13 @@ private:
 
 /*
 ------------------------------------------------------------
-PlayState (Playing the Game)
+StartState (Playing the Starting Music)
 ------------------------------------------------------------
 */
-class PlayState : public GameState {
+class StartState : public GameState {
 public:
     //static accessor
-    static PlayState *get();
-    
-    static void catchChannelDone(int chan);
+    static StartState *get();
     
     //Transitions
     bool enter();
@@ -91,19 +94,65 @@ public:
     void handleEvent( SDL_Event& e );
     void update();
     void render();
-    
-    int finishMusic();
+    void checkCollision();
 
 private:
     //Static instance
-    static PlayState sPlayState;
+    static StartState sStartState;
 
     //Private constructor
-    PlayState();
+    StartState();
     
-    //Main Player
-    Player *player;
+    //time when entering play state
+    float startTime;
+    
+    //LTexture for ready
+    LTexture *ready;
 };
+
+/*
+------------------------------------------------------------
+StartState (Playing the Starting Music)
+------------------------------------------------------------
+*/
+class LevelOne : public GameState {
+public:
+    //static accessor
+    static LevelOne *get();
+    
+    //Transitions
+    bool enter();
+    bool exit();
+    
+    //Main loop functions
+    void handleEvent( SDL_Event& e );
+    void update();
+    void render();
+    void checkCollision();
+    
+private:
+    //Static instance
+    static LevelOne sLevelOne;
+
+    //Private constructor
+    LevelOne();
+    
+    //time when entering play state
+    float startTime;
+    
+    //pointer to our static player
+    Player *player;
+    
+    //pointers to bullets
+    Bullet *playerBullets[2];
+    
+    //current index of next bullet
+    int nextBullet;
+    
+    //enemy
+    Wasp *wasp;
+};
+
 
 
 /*
@@ -124,6 +173,7 @@ public:
     void handleEvent( SDL_Event &e );
     void update();
     void render();
+    void checkCollision();
 
 private:
     //Static instance
@@ -139,5 +189,6 @@ extern GameState *currentState;
 
 void setNextState( GameState* newState );
 void changeState();
+bool globalCheckCollision(SDL_Rect A, SDL_Rect B);
 
 #endif /* GameState_hpp */

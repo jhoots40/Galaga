@@ -32,6 +32,9 @@ public:
     //render pc
     void render();
     
+    //get xPos of player
+    int getX() { return xPos; }
+    
 private:
     //position of the player
     float xPos, yPos;
@@ -41,12 +44,6 @@ private:
     
     //current velocity of the player
     float xVel;
-    
-    //bullets available to the player
-    Bullet *bullets[2];
-    
-    //keeps track of which index the next bullet will be stored
-    int nextBullet;
     
     //Players collision box
     SDL_Rect playerCollider;

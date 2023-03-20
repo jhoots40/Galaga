@@ -16,13 +16,20 @@ MenuState* MenuState::get()
 
 bool MenuState::enter()
 {
+    //render decides if you are playing one or two player
     select = true;
+    
+    //sets the menu scroll
     scrollingOffset = 600;
-    SDL_Color white = {255, 255, 255};
+    
+    //point to logo texture
     logo = &galagaLogo;
+    
+    //load text to screen
     player1 = new LTexture();
     player2 = new LTexture();
     marker = new LTexture();
+    SDL_Color white = {255, 255, 255};
     player1->loadFromRenderedText("1 Player", white);
     player2->loadFromRenderedText("2 Players", white);
     marker->loadFromRenderedText(">", white);
@@ -52,8 +59,11 @@ void MenuState::handleEvent( SDL_Event& e )
             select = true;
         }
         if(e.key.keysym.sym == SDLK_SPACE && scrollingOffset == 0) {
-            setNextState( PlayState::get() );
+            setNextState( StartState::get() );
         }
+        
+        //if you press a button skip scrolling
+        if(scrollingOffset != 0) scrollingOffset = 0;
     }
 }
 
@@ -79,6 +89,10 @@ void MenuState::render()
     player1->render((SCREEN_WIDTH - player1->getWidth()) / 2, ((SCREEN_HEIGHT - player1->getHeight()) / 2) + 100 + scrollingOffset);
     player2->render((SCREEN_WIDTH - player1->getWidth()) / 2, ((SCREEN_HEIGHT - player2->getHeight()) / 2) + 150 + scrollingOffset);
     marker->render(((SCREEN_WIDTH - player1->getWidth()) / 2) - 50, markerPos + scrollingOffset);
+    
+}
+
+void MenuState::checkCollision() {
     
 }
 

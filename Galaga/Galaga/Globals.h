@@ -24,6 +24,7 @@ extern TTF_Font* gFont;
 extern LTexture playerShip;
 extern LTexture galagaLogo;
 extern LTexture playerBullet;
+extern LTexture wasp;
 
 //intro music
 extern Mix_Chunk *introMusic;
