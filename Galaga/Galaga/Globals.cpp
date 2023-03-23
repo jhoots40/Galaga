@@ -28,7 +28,15 @@ TTF_Font* gFont = NULL;
 LTexture playerShip;
 LTexture galagaLogo;
 LTexture playerBullet;
-LTexture wasp;
+
+LTexture gWaspSheet;
+SDL_Rect gWaspClips[2];
+
+LTexture gButterflySheet;
+SDL_Rect gButterflyClips[2];
+
+LTexture enemyDeathSheet;
+SDL_Rect enemyDeathClips[5];
 
 //intro music
 Mix_Chunk *introMusic = NULL;

@@ -94,10 +94,41 @@ bool loadMedia()
         fprintf(stderr, "Failed to load \"resources/playerBullet.png\"\n" );
         success = false;
     }
-    if( !wasp.loadFromFile("resources/wasp.png"))
+    if( !gWaspSheet.loadFromFile("resources/wasp.png"))
     {
         fprintf(stderr, "Failed to load \"resources/wasp.png\"\n" );
         success = false;
+    } else {
+        for(int i = 0; i < 2; i++) {
+            gWaspClips[i].x = i * 32;
+            gWaspClips[i].y = 0;
+            gWaspClips[i].w = 32;
+            gWaspClips[i].h = 32;
+        }
+    }
+    if( !gButterflySheet.loadFromFile("resources/butterfly.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/butterfly.png\"\n" );
+        success = false;
+    } else {
+        for(int i = 0; i < 2; i++) {
+            gButterflyClips[i].x = i * 32;
+            gButterflyClips[i].y = 0;
+            gButterflyClips[i].w = 32;
+            gButterflyClips[i].h = 32;
+        }
+    }
+    if( !enemyDeathSheet.loadFromFile("resources/enemyDeath.png"))
+    {
+        fprintf(stderr, "Failed to load \"resources/enemyDeath.png\"\n" );
+        success = false;
+    } else {
+        for(int i = 0; i < 5; i++) {
+            enemyDeathClips[i].x = i * 64;
+            enemyDeathClips[i].y = 0;
+            enemyDeathClips[i].w = 64;
+            enemyDeathClips[i].h = 64;
+        }
     }
     
     
@@ -132,6 +163,9 @@ void close()
     //free textures
     playerShip.free();
     galagaLogo.free();
+    playerBullet.free();
+    gWaspSheet.free();
+    enemyDeathSheet.free();
     
     //free sound files
     Mix_FreeChunk(introMusic);

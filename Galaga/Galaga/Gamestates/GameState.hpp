@@ -13,6 +13,7 @@
 #include "../Assets/LTexture.hpp"
 #include "Player.hpp"
 #include "Wasp.hpp"
+#include "Butterfly.hpp"
 
 /*
 ------------------------------------------------------------
@@ -129,6 +130,7 @@ public:
     void update();
     void render();
     void checkCollision();
+    static void cleanUp();
     
 private:
     //Static instance
@@ -150,7 +152,10 @@ private:
     int nextBullet;
     
     //enemy
-    Wasp *wasp;
+    Wasp *wasps[5];
+    Butterfly *b[5];
+    Butterfly *butterflies[5];
+    
 };
 
 

@@ -6,33 +6,34 @@
 //
 
 #include "Wasp.hpp"
-#include "Globals.h"
-#include "Wasp.hpp"
 
 //constructor
 Wasp::Wasp(int x, int y) {
     xPos = x;
     yPos = y;
-    waspTexture = &wasp;
+    waspTexture = &gWaspSheet;
+    animation = &gWaspClips[0];
     
     waspCollider.x = xPos + 4;
     waspCollider.y = yPos + 6;
     waspCollider.w = 26;
     waspCollider.h = 20;
     
-    waspState = new IdleState();
-    
+    waspState = new IdleWaspState();
+    alive = true;
 }
 
 //destructor
 Wasp::~Wasp() {
     waspTexture = NULL;
+    animation = NULL;
     delete waspState;
     waspState = NULL;
 }
 
 //handle input
 void Wasp::handleEvent(SDL_Event &e) {
+    //printf("handling input");
     waspState->handleInput(*this, e);
 }
 
@@ -44,7 +45,7 @@ void Wasp::update() {
 
 //render pc
 void Wasp::render() {
-    waspState->render(*this);
+    waspTexture->render(xPos, yPos, animation);
 }
 
 bool Wasp::checkCollision(SDL_Rect collider) {

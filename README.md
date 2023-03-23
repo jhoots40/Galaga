@@ -56,21 +56,30 @@ will be doing in the future.
 #March 18th, 2023
 
 ##Progress Update
-There have been a lot of new features added to the program over the past couple of days. The biggest addition has been the completion of the 
-home screen state. It now scrolls up with the galaga logo and the options to select single or double player which have not been implemented
-yet. Once you click space on the keyboard you enter the playing state and have a PC you can move around and fire bullets with. Moving the PC
-and other things were something that I had done before so the work was pretty easy. But I learned a lot about the next topic which I will cover.
+There have been a lot of new features added to the program over the past couple of days. The biggest addition has been the completion of 
+the home screen state. It now scrolls up with the galaga logo and the options to select single or double player which have not been
+implemented yet. Once you click space on the keyboard you enter the playing state and have a PC you can move around and fire bullets with.
+Moving the PC and other things were something that I had done before so the work was pretty easy. But I learned a lot about the next topic
+which I will cover.
 
 ##Callback Functions
-I had heard of these at school but had never written a program which needed to use them. Basically it allows you to pass a function as a parameter.
-and in the function that you pass the function pointer in to calls the function. I needed to learn about them to create a callback function for when
-audio ends. My plan was to change from a "ReadyState", which plays between levels and gives you information about the next one. Not sure if I
-should make a ReadyState class, or if I should hard code the ready state into each individual level.
+I had heard of these at school but had never written a program which needed to use them. Basically it allows you to pass a function as a
+parameter and in the function that you pass the function pointer in to calls the function. I needed to learn about them to create a  
+callback function for when audio ends. My plan was to change from a "ReadyState", which plays between levels and gives you information 
+about the next one. Not sure if I should make a ReadyState class, or if I should hard code the ready state into each individual level.
 
 ##Plans for Next Time
-Currently the plan is to start to create some sort of abstraction for levels. I have already used the singleton method so it might be good for me,
-to try something else. So the plan will be to research how I could abstract levels and then try to implement that abstraction into the PlayState,
-singleton. This will also involve figuring out how I want to implement the inbetween state of all of the level. Should be a fun day of refactoring.
+Currently the plan is to start to create some sort of abstraction for levels. I have already used the singleton method so it might be good 
+for me, to try something else. So the plan will be to research how I could abstract levels and then try to implement that abstraction into 
+the PlayState, singleton. This will also involve figuring out how I want to implement the inbetween state of all of the level. Should be a 
+fun day of refactoring.
+
+#March 22nd, 20223
+
+##Progress Update
+Currently I have been working on getting the enemies to move the way that I want them too. As of right now I am developing a state machine 
+that the enemies use. Each of the enemies has its own state machine that allows them to change their state. The two states that I have 
+implemented is the idle state and the death state. The idle state keeps the enemies in position and then 
 
 
 

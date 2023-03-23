@@ -21,10 +21,19 @@ extern Uint32 pastCount;
 //font for galaga game
 extern TTF_Font* gFont;
 
+
 extern LTexture playerShip;
 extern LTexture galagaLogo;
 extern LTexture playerBullet;
-extern LTexture wasp;
+
+extern LTexture gWaspSheet;
+extern SDL_Rect gWaspClips[2];
+
+extern LTexture gButterflySheet;
+extern SDL_Rect gButterflyClips[2];
+
+extern LTexture enemyDeathSheet;
+extern SDL_Rect enemyDeathClips[5];
 
 //intro music
 extern Mix_Chunk *introMusic;

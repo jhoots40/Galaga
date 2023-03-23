@@ -25,8 +25,15 @@
 		78EA081329C6848900861150 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78EA081229C6848800861150 /* SDL2_mixer.framework */; };
 		78EA082029C813CF00861150 /* LevelOne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA081F29C813CF00861150 /* LevelOne.cpp */; };
 		78EA082629C8183500861150 /* Wasp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA082429C8183500861150 /* Wasp.cpp */; };
-		78EA082B29C82F0200861150 /* IdleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA082A29C82F0200861150 /* IdleState.cpp */; };
-		78EA083029C83C0F00861150 /* DeathState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA082E29C83C0F00861150 /* DeathState.cpp */; };
+		78EA082B29C82F0200861150 /* IdleWaspState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA082A29C82F0200861150 /* IdleWaspState.cpp */; };
+		78EA083029C83C0F00861150 /* DeathWaspState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA082E29C83C0F00861150 /* DeathWaspState.cpp */; };
+		78EA083D29C96D4500861150 /* Butterfly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA083B29C96D4500861150 /* Butterfly.cpp */; };
+		78EA083F29C9701D00861150 /* IdleButterflyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA083E29C9701D00861150 /* IdleButterflyState.cpp */; };
+		78EA084129C9732700861150 /* DeathButterflyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA084029C9732700861150 /* DeathButterflyState.cpp */; };
+		78EA086329CBB26300861150 /* MoveButterflyState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA086129CBB26300861150 /* MoveButterflyState.cpp */; };
+		78EA086629CBCAE500861150 /* IdleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA086429CBCAE500861150 /* IdleState.cpp */; };
+		78EA086929CBD21900861150 /* DeathState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA086729CBD21900861150 /* DeathState.cpp */; };
+		78EA086B29CBDCDB00861150 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78EA086A29CBDCDB00861150 /* Enemy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,9 +80,19 @@
 		78EA081F29C813CF00861150 /* LevelOne.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelOne.cpp; sourceTree = "<group>"; };
 		78EA082229C8165700861150 /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 		78EA082429C8183500861150 /* Wasp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Wasp.cpp; sourceTree = "<group>"; };
-		78EA082A29C82F0200861150 /* IdleState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleState.cpp; sourceTree = "<group>"; };
+		78EA082A29C82F0200861150 /* IdleWaspState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleWaspState.cpp; sourceTree = "<group>"; };
 		78EA082C29C8312600861150 /* Wasp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Wasp.hpp; sourceTree = "<group>"; };
-		78EA082E29C83C0F00861150 /* DeathState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeathState.cpp; sourceTree = "<group>"; };
+		78EA082E29C83C0F00861150 /* DeathWaspState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeathWaspState.cpp; sourceTree = "<group>"; };
+		78EA083B29C96D4500861150 /* Butterfly.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Butterfly.cpp; sourceTree = "<group>"; };
+		78EA083C29C96D4500861150 /* Butterfly.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Butterfly.hpp; sourceTree = "<group>"; };
+		78EA083E29C9701D00861150 /* IdleButterflyState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleButterflyState.cpp; sourceTree = "<group>"; };
+		78EA084029C9732700861150 /* DeathButterflyState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeathButterflyState.cpp; sourceTree = "<group>"; };
+		78EA086129CBB26300861150 /* MoveButterflyState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveButterflyState.cpp; sourceTree = "<group>"; };
+		78EA086429CBCAE500861150 /* IdleState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IdleState.cpp; sourceTree = "<group>"; };
+		78EA086529CBCAE500861150 /* IdleState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = IdleState.hpp; sourceTree = "<group>"; };
+		78EA086729CBD21900861150 /* DeathState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DeathState.cpp; sourceTree = "<group>"; };
+		78EA086829CBD21900861150 /* DeathState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DeathState.hpp; sourceTree = "<group>"; };
+		78EA086A29CBDCDB00861150 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +190,12 @@
 				78EA081029C664BB00861150 /* Bullet.hpp */,
 				78EA080F29C664BB00861150 /* Bullet.cpp */,
 				78EA082229C8165700861150 /* Enemy.hpp */,
+				78EA086A29CBDCDB00861150 /* Enemy.cpp */,
+				78EA086529CBCAE500861150 /* IdleState.hpp */,
+				78EA086429CBCAE500861150 /* IdleState.cpp */,
+				78EA086829CBD21900861150 /* DeathState.hpp */,
+				78EA086729CBD21900861150 /* DeathState.cpp */,
+				78EA083A29C96D1D00861150 /* butterfly */,
 				78EA082D29C8341B00861150 /* wasp */,
 			);
 			path = Assets;
@@ -183,10 +206,22 @@
 			children = (
 				78EA082C29C8312600861150 /* Wasp.hpp */,
 				78EA082429C8183500861150 /* Wasp.cpp */,
-				78EA082A29C82F0200861150 /* IdleState.cpp */,
-				78EA082E29C83C0F00861150 /* DeathState.cpp */,
+				78EA082A29C82F0200861150 /* IdleWaspState.cpp */,
+				78EA082E29C83C0F00861150 /* DeathWaspState.cpp */,
 			);
 			path = wasp;
+			sourceTree = "<group>";
+		};
+		78EA083A29C96D1D00861150 /* butterfly */ = {
+			isa = PBXGroup;
+			children = (
+				78EA083C29C96D4500861150 /* Butterfly.hpp */,
+				78EA083B29C96D4500861150 /* Butterfly.cpp */,
+				78EA083E29C9701D00861150 /* IdleButterflyState.cpp */,
+				78EA084029C9732700861150 /* DeathButterflyState.cpp */,
+				78EA086129CBB26300861150 /* MoveButterflyState.cpp */,
+			);
+			path = butterfly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,14 +287,21 @@
 				78EA082029C813CF00861150 /* LevelOne.cpp in Sources */,
 				788CD0EA29C13B3000B72C57 /* LTexture.cpp in Sources */,
 				78EA080E29C5263400861150 /* StartState.cpp in Sources */,
-				78EA083029C83C0F00861150 /* DeathState.cpp in Sources */,
+				78EA083029C83C0F00861150 /* DeathWaspState.cpp in Sources */,
 				78EA080C29C5032800861150 /* Player.cpp in Sources */,
+				78EA086629CBCAE500861150 /* IdleState.cpp in Sources */,
 				788CD0E229C1393C00B72C57 /* main.cpp in Sources */,
+				78EA086929CBD21900861150 /* DeathState.cpp in Sources */,
 				78EA082629C8183500861150 /* Wasp.cpp in Sources */,
 				78EA081129C664BB00861150 /* Bullet.cpp in Sources */,
 				788CD0D629C1322200B72C57 /* GameState.cpp in Sources */,
-				78EA082B29C82F0200861150 /* IdleState.cpp in Sources */,
+				78EA083D29C96D4500861150 /* Butterfly.cpp in Sources */,
+				78EA086329CBB26300861150 /* MoveButterflyState.cpp in Sources */,
+				78EA086B29CBDCDB00861150 /* Enemy.cpp in Sources */,
+				78EA082B29C82F0200861150 /* IdleWaspState.cpp in Sources */,
 				788CD0E929C139AB00B72C57 /* Util.cpp in Sources */,
+				78EA084129C9732700861150 /* DeathButterflyState.cpp in Sources */,
+				78EA083F29C9701D00861150 /* IdleButterflyState.cpp in Sources */,
 				788CD0ED29C1424100B72C57 /* MenuState.cpp in Sources */,
 				788CD0F329C1656200B72C57 /* Background.cpp in Sources */,
 			);

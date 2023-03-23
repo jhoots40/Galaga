@@ -33,6 +33,9 @@ public:
     //get collision box
     SDL_Rect getCollider() { return bulletCollider; }
     
+    bool isAlive() { return onScreen; }
+    void setAlive(bool alive) { onScreen = alive; }
+    
 private:
     //bullet position
     float xPos, yPos;
@@ -48,6 +51,7 @@ private:
     
     //Players collision box
     SDL_Rect bulletCollider;
+    
 };
 
 #endif /* Bullet_hpp */
